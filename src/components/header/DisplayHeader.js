@@ -2,6 +2,12 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { connect } from 'react-redux';
 
+import { ReactComponent as CogIcon } from '../../images/cog.svg';
+import { ReactComponent as CandyBoxIcon } from '../../images/candybox.svg';
+import { ReactComponent as TreasureMapIcon } from '../../images/treasure-map.svg';
+import { ReactComponent as SaveIcon } from '../../images/paper-tray.svg';
+import { ReactComponent as InventoryIcon } from '../../images/knapsack.svg';
+
 import DisplayInventory from './DisplayInventory';
 
 const DisplayHeader = ({ candyBox, config, save, health, map }) => {
@@ -13,20 +19,36 @@ const DisplayHeader = ({ candyBox, config, save, health, map }) => {
 			<NavigationWrapper>
 				<Navigation>
 					<NavigationButtons>
-						{candyBox && <div>Candy box</div>}
-						{/* <div>Inventory</div> */}
-						{map && <div>Map</div>}
+						{candyBox && (
+							<ConfigButton>
+								<CandyBoxIcon />
+							</ConfigButton>
+						)}
+						<ConfigButton>
+							<InventoryIcon />
+						</ConfigButton>
+						{map && (
+							<ConfigButton>
+								<TreasureMapIcon />
+							</ConfigButton>
+						)}
 					</NavigationButtons>
 					<Config>
-						{save && <div>Save</div>}
+						{save && (
+							<ConfigButton>
+								<SaveIcon />
+							</ConfigButton>
+						)}
 						{config && (
-							<div>
-								<cog></cog>
-							</div>
+							<ConfigButton>
+								<CogIcon />
+							</ConfigButton>
 						)}
 					</Config>
 				</Navigation>
-				<HealthWrapper>{health && <div>Health</div>}</HealthWrapper>
+				<HealthWrapper>
+					{health && <div>Your health: 100/100</div>}
+				</HealthWrapper>
 			</NavigationWrapper>
 		</Wrapper>
 	);
@@ -87,4 +109,15 @@ const Config = styled.div`
 	display: flex;
 `;
 
-const HealthWrapper = styled.div``;
+const ConfigButton = styled.div`
+	border: 1px solid black;
+	margin-left: 0.5rem;
+	cursor: pointer;
+`;
+
+const HealthWrapper = styled.div`
+	background-color: #30ff49;
+	margin-left: 0.5rem;
+	margin-top: 0.5rem;
+	text-align: center;
+`;
