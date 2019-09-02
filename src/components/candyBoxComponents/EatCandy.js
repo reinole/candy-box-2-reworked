@@ -19,7 +19,6 @@ const EatCandy = ({
 			console.log('Not enough candy');
 		}
 	};
-	console.log(candies);
 
 	return <button onClick={consumeCandy}>Eat all the candies</button>;
 };

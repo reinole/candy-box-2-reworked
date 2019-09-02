@@ -5,7 +5,7 @@ const CandyIncrement = ({ candies, dispatch }) => {
 	useEffect(() => {
 		const interval = setInterval(() => {
 			dispatch({ type: 'INCREMENT_CANDIES' });
-		}, 1000);
+		}, 300);
 		return () => {
 			clearInterval(interval);
 		};

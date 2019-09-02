@@ -1,42 +1,62 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { connect } from 'react-redux';
+
 import DisplayInventory from './DisplayInventory';
 
-const DisplayHeader = () => {
+const DisplayHeader = ({ candyBox, config, save, health, map }) => {
 	return (
-		<Wrapper>
+		<Wrapper createStyle={candyBox}>
 			<StorageWrapper>
 				<DisplayInventory></DisplayInventory>
 			</StorageWrapper>
 			<NavigationWrapper>
 				<Navigation>
 					<NavigationButtons>
-						<div>Candy box</div>
-						<div>Inventory</div>
-						<div>Map</div>
+						{candyBox && <div>Candy box</div>}
+						{/* <div>Inventory</div> */}
+						{map && <div>Map</div>}
 					</NavigationButtons>
 					<Config>
-						<div>Save</div>
-						<div>Config</div>
+						{save && <div>Save</div>}
+						{config && (
+							<div>
+								<cog></cog>
+							</div>
+						)}
 					</Config>
 				</Navigation>
-				<HealthWrapper>
-					<div>Health</div>
-				</HealthWrapper>
+				<HealthWrapper>{health && <div>Health</div>}</HealthWrapper>
 			</NavigationWrapper>
 		</Wrapper>
 	);
 };
 
-export default DisplayHeader;
+const mapStateToProps = state => {
+	return {
+		candyBox: state.initialiseFeature.displayCandyBox,
+		config: state.initialiseFeature.displayConfig,
+		save: state.initialiseFeature.displaySave,
+		health: state.initialiseFeature.displayHealth,
+		map: state.initialiseFeature.displayMap
+	};
+};
+
+export default connect(mapStateToProps)(DisplayHeader);
 
 const Wrapper = styled.div`
 	display: flex;
 	max-width: 55rem;
 	margin: auto;
 	padding: 0.5rem;
-	border: 1px dashed black;
 	margin-bottom: 1rem;
+	border: 1px dashed transparent;
+
+	${props =>
+		props.createStyle &&
+		css`
+			border: 1px dashed black;
+		`}
 `;
 
 const StorageWrapper = styled.div`
