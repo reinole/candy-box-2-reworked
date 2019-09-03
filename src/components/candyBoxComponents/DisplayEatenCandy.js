@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const EatenCandy = ({ candies }) => {
-	return <p>You have eaten {candies} candy</p>;
+const EatenCandy = ({ eatenCandies }) => {
+	return <p>You have eaten {eatenCandies} candies</p>;
 };
 
 const mapStateToProps = state => {
 	return {
-		candies: state.countCandies.candies
+		eatenCandies: state.countCandies.eatenCandies
 	};
 };
 

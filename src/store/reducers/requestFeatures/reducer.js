@@ -5,7 +5,9 @@ const initialState = {
 	displayConfig: false,
 	displaySave: false,
 	displayHealth: false,
-	displayMap: false
+	displayMap: false,
+	allFeaturesImplemented: false
+
 	//inventory?
 };
 
@@ -25,6 +27,8 @@ function initialiseFeature(state = initialState, action) {
 			return { ...state, displayHealth: true };
 		case 'DISPLAYMAP':
 			return { ...state, displayMap: true };
+		case 'ALLFEATURESIMPLEMENTED':
+			return { ...state, allFeaturesImplemented: true };
 		default:
 			return state;
 	}

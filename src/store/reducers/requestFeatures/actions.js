@@ -27,3 +27,7 @@ export const displayHealth = () => ({
 export const displayMap = () => ({
 	type: types.DISPLAY_MAP
 });
+
+export const allFeaturesImplemented = () => ({
+	type: types.ALL_FEATURES_IMPLEMENTED
+});

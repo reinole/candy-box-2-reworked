@@ -10,7 +10,11 @@ function countCandies(state = initialState, action) {
 		case 'INCREMENT_CANDIES':
 			return { ...state, candies: state.candies + 1 };
 		case 'DECREMENT_CANDIES':
-			return { ...state, candies: state.candies - state.candies };
+			return {
+				...state,
+				candies: state.candies - state.candies,
+				eatenCandies: state.eatenCandies + state.candies
+			};
 		case 'DECREMENT_FIVE_CANDIES':
 			return { ...state, candies: state.candies - 5 };
 		case 'DECREMENT_TEN_CANDIES':

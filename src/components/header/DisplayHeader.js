@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { ReactComponent as CogIcon } from '../../images/cog.svg';
 import { ReactComponent as CandyBoxIcon } from '../../images/candybox.svg';
@@ -21,27 +22,37 @@ const DisplayHeader = ({ candyBox, config, save, health, map }) => {
 					<NavigationButtons>
 						{candyBox && (
 							<ConfigButton>
-								<CandyBoxIcon />
+								<Link to='/'>
+									<CandyBoxIcon />
+								</Link>
 							</ConfigButton>
 						)}
 						<ConfigButton>
-							<InventoryIcon />
+							<Link to='/inventory/'>
+								<InventoryIcon />
+							</Link>
 						</ConfigButton>
 						{map && (
 							<ConfigButton>
-								<TreasureMapIcon />
+								<Link to='/map/'>
+									<TreasureMapIcon />
+								</Link>
 							</ConfigButton>
 						)}
 					</NavigationButtons>
 					<Config>
 						{save && (
 							<ConfigButton>
-								<SaveIcon />
+								<Link to='/save/'>
+									<SaveIcon />
+								</Link>
 							</ConfigButton>
 						)}
 						{config && (
 							<ConfigButton>
-								<CogIcon />
+								<Link to='/config/'>
+									<CogIcon />
+								</Link>
 							</ConfigButton>
 						)}
 					</Config>
@@ -110,6 +121,8 @@ const Config = styled.div`
 `;
 
 const ConfigButton = styled.div`
+	display: flex;
+	flex-direction: column;
 	border: 1px solid black;
 	margin-left: 0.5rem;
 	cursor: pointer;

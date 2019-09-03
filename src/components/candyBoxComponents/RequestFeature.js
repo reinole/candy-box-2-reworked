@@ -78,6 +78,7 @@ const RequestFeature = ({ candies, dispatch, features }) => {
 			dispatch({ type: 'DISPLAYMAP' });
 			dispatch({ type: 'DECREMENT_TEN_CANDIES' });
 			dispatch({ type: 'HIDEFEATUREBUTTON' });
+			dispatch({ type: 'ALLFEATURESIMPLEMENTED' });
 
 			console.log('Map');
 		}
