@@ -6,6 +6,10 @@ import SaveView from './views/SaveView';
 import ConfigView from './views/ConfigView';
 import InventoryView from './views/InventoryView';
 import MapView from './views/MapView';
+import HouseOne from './views/map/city/HouseOne';
+import HouseTwo from './views/map/city/HouseTwo';
+import Shop from './views/map/city/Shop';
+import Forge from './views/map/city/Forge';
 
 import DisplayHeader from './components/header/DisplayHeader';
 
@@ -20,6 +24,10 @@ function App() {
 			<Route path='/config/' component={ConfigView} />
 			<Route path='/inventory/' component={InventoryView} />
 			<Route path='/map/' component={MapView} />
+			<Route path='/city/houseone/' component={HouseOne} />
+			<Route path='/city/housetwo/' component={HouseTwo} />
+			<Route path='/city/shop/' component={Shop} />
+			<Route path='/city/forge/' component={Forge} />
 		</Router>
 	);
 }
