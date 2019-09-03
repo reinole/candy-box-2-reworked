@@ -1,17 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const EatCandy = ({ eatenCandy, setEatenCandy, candies, dispatch }) => {
+import Button from '../Button';
+
+const EatCandy = ({ candies, dispatch }) => {
 	const consumeCandy = () => {
 		if (candies > 0) {
 			console.log('eatcandy');
-			dispatch({ type: 'DECREMENT_CANDIES' });
+			dispatch({ type: 'EAT_CANDIES' });
 		} else {
 			console.log('Not enough candy');
 		}
 	};
 
-	return <button onClick={consumeCandy}>Eat all the candies</button>;
+	return <Button onClick={consumeCandy}>Eat all the candies</Button>;
 };
 
 const mapStateToProps = state => {

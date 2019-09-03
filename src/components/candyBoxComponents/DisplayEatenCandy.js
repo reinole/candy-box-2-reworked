@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const EatenCandy = ({ eatenCandies }) => {
-	return <p>You have eaten {eatenCandies} candies</p>;
+	return <span>You have eaten {eatenCandies} candies</span>;
 };
 
 const mapStateToProps = state => {

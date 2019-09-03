@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
+import Button from '../Button';
+
 const RequestFeature = ({ candies, dispatch, features }) => {
 	const [requestCost, setRequestCost] = useState(
 		'Request a new feature from the developer (30 candies)'
@@ -8,13 +10,10 @@ const RequestFeature = ({ candies, dispatch, features }) => {
 	const [requestToolTipText, setRequestToolTipText] = useState('');
 
 	useEffect(() => {
-		// This useEffect should not run forever
-		console.log('kjører som faen');
 		updateDisplayButtonState();
 	}, [candies]);
 
 	const updateDisplayButtonState = () => {
-		// denne må stoppes
 		if (candies >= 30 && features.displayMap !== true) {
 			dispatch({
 				type: 'DISPLAYFEATUREBUTTON'
@@ -23,7 +22,7 @@ const RequestFeature = ({ candies, dispatch, features }) => {
 	};
 
 	const addMoreFeatures = () => {
-		if (candies >= 30 && features.displayCandyBox === false) {
+		if (candies >= 30 && features.displayCandyBox !== true) {
 			dispatch({ type: 'DISPLAYCANDYBOX' });
 			dispatch({ type: 'DECREMENT_THIRTY_CANDIES' });
 			console.log('CandyBox');
@@ -34,7 +33,7 @@ const RequestFeature = ({ candies, dispatch, features }) => {
 		if (
 			candies >= 5 &&
 			features.displayCandyBox === true &&
-			features.displayConfig === false
+			features.displayConfig !== true
 		) {
 			dispatch({ type: 'DISPLAYCONFIG' });
 			dispatch({ type: 'DECREMENT_FIVE_CANDIES' });
@@ -45,7 +44,7 @@ const RequestFeature = ({ candies, dispatch, features }) => {
 		if (
 			candies >= 5 &&
 			features.displayConfig === true &&
-			features.displaySave === false
+			features.displaySave !== true
 		) {
 			dispatch({ type: 'DISPLAYSAVE' });
 			dispatch({ type: 'DECREMENT_FIVE_CANDIES' });
@@ -56,7 +55,7 @@ const RequestFeature = ({ candies, dispatch, features }) => {
 		if (
 			candies >= 5 &&
 			features.displaySave === true &&
-			features.displayHealth === false
+			features.displayHealth !== true
 		) {
 			dispatch({ type: 'DISPLAYHEALTH' });
 			dispatch({ type: 'DECREMENT_FIVE_CANDIES' });
@@ -73,7 +72,7 @@ const RequestFeature = ({ candies, dispatch, features }) => {
 		if (
 			candies >= 10 &&
 			features.displayHealth === true &&
-			features.displayMap === false
+			features.displayMap !== true
 		) {
 			dispatch({ type: 'DISPLAYMAP' });
 			dispatch({ type: 'DECREMENT_TEN_CANDIES' });
@@ -91,8 +90,8 @@ const RequestFeature = ({ candies, dispatch, features }) => {
 		) {
 			return (
 				<div>
-					<button onClick={addMoreFeatures}>{requestCost}</button>
-					<p>{requestToolTipText}</p>
+					<Button onClick={addMoreFeatures}>{requestCost}</Button>
+					<span>{requestToolTipText}</span>
 				</div>
 			);
 		} else {

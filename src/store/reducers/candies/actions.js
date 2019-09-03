@@ -4,8 +4,12 @@ export const increment = () => ({
 	type: types.INCREMENT_CANDIES
 });
 
-export const decrement = () => ({
-	type: types.DECREMENT_CANDIES
+export const eatCandies = () => ({
+	type: types.EAT_CANDIES
+});
+
+export const throwCandies = () => ({
+	type: types.THROW_CANDIES
 });
 
 export const decrementFiveCandies = () => ({

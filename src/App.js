@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import MainView from './views/MainView';
 import CandyBox from './views/CandyBox';
 
 import SaveView from './views/SaveView';
